@@ -1,15 +1,28 @@
 package io.github.gustavorrsilva.productsapi.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Table(name = "product")
+@Entity
 public class Product {
+    @Id
+    @Column(name = "id")
     private String id;
-    private String productName;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "price")
     private Double price;
 
     @Override
     public String toString() {
         return "Product{" +
                 "id='" + id + '\'' +
-                ", productName='" + productName + '\'' +
+                ", productName='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 '}';
@@ -24,12 +37,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
