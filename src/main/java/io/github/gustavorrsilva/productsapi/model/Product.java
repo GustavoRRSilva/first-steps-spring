@@ -1,5 +1,4 @@
 package io.github.gustavorrsilva.productsapi.model;
-
 public class Product {
     private String id;
     private String productName;
