@@ -41,4 +41,10 @@ public class ProductController {
             throw new RuntimeException(e);
         }
     }
+
+    @PutMapping("/{id}")
+    public void edit(@PathVariable("id") String id, @RequestBody() Product product){
+        product.setId(id);
+        this.productRepository.save(product);
+    }
 }
