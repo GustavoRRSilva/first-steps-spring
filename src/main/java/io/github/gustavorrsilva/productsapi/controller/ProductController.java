@@ -32,4 +32,13 @@ public class ProductController {
     public Product findById(@PathVariable("id") String id){
         return productRepository.findById(id).orElse(null);//optional because we don't know if there is a product with this id
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") String id){
+        try {
+            productRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
