@@ -4,6 +4,7 @@ import io.github.gustavorrsilva.productsapi.model.Product;
 import io.github.gustavorrsilva.productsapi.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -46,5 +47,10 @@ public class ProductController {
     public void edit(@PathVariable("id") String id, @RequestBody() Product product){
         product.setId(id);
         this.productRepository.save(product);
+    }
+
+    @GetMapping()
+    public List <Product> findUsingParameters(@RequestParam("name") String name){
+        return productRepository.findByName(name);
     }
 }
